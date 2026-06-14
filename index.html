@@ -3,228 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEE HUI HAN | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>DEE HUI HAN | Technical Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #222222;
-            --text-muted: #666666;
-            --border-color: #e5e7eb;
-            --accent-color: #0f172a;
-            --card-bg: #f8fafc;
-            --timeline-line: #cbd5e1;
-            --timeline-dot: #0f172a;
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --accent-gradient: linear-gradient(135deg, #0ea5e9, #10b981);
+            --accent-color: #0ea5e9;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            --card-hover-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --timeline-line: #e2e8f0;
+            --timeline-dot: #10b981;
+            --pill-bg: #f1f5f9;
         }
 
         [data-theme="dark"] {
-            --bg-color: #0f172a;
+            --bg-color: #0b0f19;
             --text-color: #f8fafc;
             --text-muted: #94a3b8;
-            --border-color: #334155;
+            --border-color: #1e293b;
+            --accent-gradient: linear-gradient(135deg, #38bdf8, #34d399);
             --accent-color: #38bdf8;
-            --card-bg: #1e293b;
-            --timeline-line: #334155;
-            --timeline-dot: #38bdf8;
+            --card-bg: #111827;
+            --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+            --card-hover-shadow: 0 10px 20px -3px rgb(0 0 0 / 0.5);
+            --timeline-line: #1e293b;
+            --timeline-dot: #34d399;
+            --pill-bg: #1e293b;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.2s;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 3rem 1.5rem;
         }
 
         .container {
-            max-width: 760px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        /* Header & Dark Mode Toggle */
+        /* Vibrant Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.05em;
-            margin-bottom: 0.5rem;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
         }
 
         .contact-info {
             font-size: 0.95rem;
             color: var(--text-muted);
-        }
-
-        .contact-info a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px solid var(--text-muted);
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
             font-weight: 500;
         }
 
-        .theme-toggle:hover {
-            background-color: var(--card-bg);
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        /* Sections */
+        .theme-toggle {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: var(--card-shadow);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        /* Vibrant Section Headers */
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
             letter-spacing: -0.02em;
-            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: '';
             display: inline-block;
+            width: 6px;
+            height: 24px;
+            background: var(--accent-gradient);
+            border-radius: 4px;
         }
 
         p {
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
         }
 
-        /* Skills Grid */
+        /* Soft Skills Grid & Pills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1.5rem;
         }
 
         .skill-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 1.25rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
         }
 
         .skill-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
         }
 
         .skill-card p {
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             margin-bottom: 0;
+            line-height: 1.5;
         }
 
-        /* Timeline (Serif Core Effect) */
+        /* Lively Timeline */
         .timeline {
             position: relative;
-            border-left: 2px solid var(--timeline-line);
-            padding-left: 1.5rem;
+            border-left: 3px solid var(--timeline-line);
+            padding-left: 2rem;
             margin-left: 0.5rem;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--accent-color);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             background-color: var(--bg-color);
-            border: 3px solid var(--timeline-dot);
+            border: 4px solid var(--timeline-dot);
             border-radius: 50%;
-            left: -23px;
-            top: 6px;
-            transition: transform 0.2s;
-        }
-
-        .timeline-item:hover::before {
-            transform: scale(1.3);
+            left: -41px;
+            top: 24px;
+            z-index: 2;
         }
 
         .time {
             font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            margin-bottom: 0.25rem;
+            font-weight: 700;
+            color: var(--timeline-dot);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            background-color: var(--pill-bg);
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
         }
 
         .job-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
 
         .timeline-item ul {
             list-style-type: none;
             padding-left: 0;
+            margin-top: 0.75rem;
         }
 
         .timeline-item li {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             position: relative;
-            padding-left: 1rem;
+            padding-left: 1.2rem;
         }
 
         .timeline-item li::before {
-            content: "•";
+            content: "✦";
             position: absolute;
             left: 0;
-            color: var(--timeline-dot);
-        }
-
-        /* Achievements Badge Style */
-        .badge-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .badge-item {
-            display: flex;
-            justify-content: space-between;
-            background-color: var(--card-bg);
-            padding: 0.75rem 1.25rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--timeline-dot);
-            font-size: 0.95rem;
-        }
-
-        .badge-item span:last-child {
-            font-weight: 600;
             color: var(--accent-color);
+            font-size: 0.8rem;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            header { flex-direction: column-reverse; gap: 1rem; }
+            h1 { font-size: 2.2rem; }
+            header { flex-direction: column-reverse; gap: 1.5rem; align-items: stretch; }
             .theme-toggle { align-self: flex-end; }
+            .timeline { padding-left: 1.2rem; }
+            .timeline-item::before { left: -28px; }
         }
     </style>
 </head>
@@ -239,7 +259,7 @@
                 Email: <a href="mailto:deehuihan@gmail.com">deehuihan@gmail.com</a> | 
                 Phone: 0968746382 | 
                 GitHub: <a href="https://github.com/deehuihan" target="_blank">deehuihan</a> <br>
-                Location: Hsinchu City, Taiwan
+                <span style="display:inline-block; margin-top: 0.25rem;">📍 Hsinchu City, Taiwan</span>
             </div>
         </div>
         <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
@@ -248,8 +268,8 @@
     <!-- Summary Section -->
     <section>
         <h2>Professional Summary</h2>
-        <p>I am a Master's student at the Institute of Computer Science and Engineering, National Yang Ming Chiao Tung University (NYCU), specializing in <strong>Human-Computer Interaction (HCI)</strong>. My technical background focus encompasses <strong>Full-Stack Web Development</strong>, <strong>Software Automation via LLMs</strong>, and <strong>Conversational Systems (Chatbots)</strong>.</p>
-        <p>With proven internship experience in software QA testing, corporate quality control, and cross-functional project management (LINE FRESH), I excel at bridging human-centered user experiences with technical execution. I am actively seeking a position as a <strong>Software Engineer</strong> or <strong>Web Developer</strong> to build intuitive, automated, and impact-driven applications.</p>
+        <p>I am a Master's student at the Institute of Computer Science and Engineering, National Yang Ming Chiao Tung University (NYCU), specializing in <strong>Human-Computer Interaction (HCI)</strong>. My technical universe revolves around crafting seamless <strong>Full-Stack Web Applications</strong>, designing <strong>Software Automation via LLMs</strong>, and building engaging <strong>Conversational Systems (Chatbots)</strong>.</p>
+        <p>With verified internship experience spanning agile software QA testing, corporate quality control, and collaborative cross-functional product definition (LINE FRESH), I love transforming user insights into highly operational backend and frontend code. I am actively seeking an opportunity as a <strong>Software Engineer</strong> or <strong>Web Developer</strong> to build conversational, interactive, and high-impact digital experiences.</p>
     </section>
 
     <!-- Education Section -->
@@ -259,19 +279,19 @@
             <div class="timeline-item">
                 <div class="time">Sept 2022 - Present</div>
                 <div class="job-title">M.S. in Computer Science and Engineering (HCI Group)</div>
-                <p style="margin-bottom: 0;">National Yang Ming Chiao Tung University (NYCU)</p>
+                <p style="font-size: 0.95rem; font-weight: 500;">National Yang Ming Chiao Tung University (NYCU)</p>
             </div>
             <div class="timeline-item">
                 <div class="time">Sept 2018 - June 2022</div>
                 <div class="job-title">B.S. in Computer Science</div>
-                <p style="margin-bottom: 0;">National Taipei University (NTPU)</p>
+                <p style="font-size: 0.95rem; font-weight: 500;">National Taipei University (NTPU)</p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section>
-        <h2>Technical Skills</h2>
+        <h2>Technical Arsenal</h2>
         <div class="skills-grid">
             <div class="skill-card">
                 <h3>Languages</h3>
@@ -304,16 +324,16 @@
                 <div class="time">Sept 2023 - Feb 2024</div>
                 <div class="job-title">QA Test Engineer Intern @ Canner, Inc. (美商易開科技)</div>
                 <ul>
-                    <li>Conducted comprehensive functional and usability testing for newly released features and identified system boundaries.</li>
-                    <li>Reproduced, verified, and systematically tracked customer-reported bugs to ensure successful hotfixes and software reliability.</li>
-                    <li>Maintained testing workflows using <strong>Kubernetes</strong> and managed local test environment setups for quality assurance.</li>
+                    <li>Executed end-to-end functional and usability test suites for newly launched features to mapping product boundaries.</li>
+                    <li>Replicated, diagnosed, and systematically logged customer-facing bugs using comprehensive tracking tools to secure critical system hotfixes.</li>
+                    <li>Managed staging environment configurations and verified containerized deployment stability using <strong>Kubernetes</strong>.</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <div class="time">July 2023 - Aug 2023</div>
                 <div class="job-title">A+ Summer Intern @ AUO (友達光電)</div>
                 <ul>
-                    <li>Completed the highly competitive corporate summer internship within the Quality Control division, gaining insights into enterprise-grade quality management architectures.</li>
+                    <li>Immersed in an intensive tech talent incubator inside the Quality Control division, mastering systemic verification workflows and high-standard enterprise quality compliance.</li>
                 </ul>
             </div>
         </div>
@@ -321,16 +341,16 @@
 
     <!-- Research Experience -->
     <section>
-        <h2>Research Experience</h2>
+        <h2>Research & Insights</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="time">AIMEX Lab, NYCU</div>
-                <div class="job-title">Master's Thesis & Core Research</div>
-                <p><em>Topic: Mitigating Social Media Malicious Comments and Personal Attacks via Meme Transformation and Text Rephrasing</em></p>
+                <div class="job-title">Master's Thesis & Human-Subject Research</div>
+                <p style="margin-top: 0.5rem;"><em>Topic: Mitigating Social Media Malicious Comments and Personal Attacks via Meme Transformation and Text Rephrasing</em></p>
                 <ul>
-                    <li><strong>Experimental & User Study Design:</strong> Designed and executed a multi-phase online behavioral experiment to scientifically evaluate the psychological impact of meme transformations and text rephrasing on human interactions.</li>
-                    <li><strong>Participant Management:</strong> Authored comprehensive <strong>IRB (Institutional Review Board) research protocols</strong> for data privacy compliance; successfully recruited and managed an interactive user study involving nearly 200 online participants.</li>
-                    <li><strong>Data Analytics & Content Analysis:</strong> Formulated a high-reliability text coding schema (<strong>Codebook</strong>) to systematically analyze user-generated content, emotional contagion patterns, and ad hominem attacks within online communities.</li>
+                    <li><strong>Experimental Design:</strong> Structured a complex, multi-stage online user experiment to quantify behavioral changes when toxic remarks are programmatically converted into memes.</li>
+                    <li><strong>Participant Operations:</strong> Governed end-to-end <strong>IRB (Institutional Review Board)</strong> data compliance protocols, successfully directing and managing over 200 remote users during the live testing sprint.</li>
+                    <li><strong>Behavioral Analytics:</strong> Created an analytical coding taxonomy (<strong>Codebook</strong>) to algorithmically break down text streams, tracking emotional contagion mechanics and mitigating ad hominem behaviors.</li>
                 </ul>
             </div>
         </div>
@@ -338,60 +358,47 @@
 
     <!-- Projects Section -->
     <section>
-        <h2>Projects & Certifications</h2>
+        <h2>Impact Projects</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="time">2023</div>
-                <div class="job-title">LINE FRESH 2023 Project</div>
+                <div class="job-title">LINE FRESH 2023 Strategy Venture</div>
                 <ul>
-                    <li>Collaborated in agile cross-functional squads to brainstorm, design, and deliver localized product features geared toward bringing "WOW" experiences to users in Taiwan.</li>
+                    <li>Cooperated inside an agile, multi-disciplinary sprint squad to ideate and prototype localized software concepts aimed at embedding interactive "WOW" moments for LINE users in Taiwan.</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <div class="time">Sept 2022 - Present</div>
                 <div class="job-title">NYCUChatBot (NYCU Campus Helper)</div>
                 <ul>
-                    <li>Maintained and optimized the conversational core of the official NYCU Campus Helper Chatbot.</li>
-                    <li>Integrated and upgraded <strong>Microsoft Azure CLU</strong> and <strong>ChatGPT / LLM</strong> automation technologies to build precise automated response systems and intent identification models.</li>
+                    <li>Maintained and extended the conversational core of NYCU's official digital hub serving thousands of active campus users.</li>
+                    <li>Upgraded the natural language backend using <strong>Microsoft Azure CLU</strong> and integrated <strong>ChatGPT / LLM APIs</strong> to scale intent mapping and automate student queries.</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <div class="time">Apr 2022 - Present</div>
-                <div class="job-title">NYCUKA (Voice-Enabled Mental Health Dialogue System)</div>
+                <div class="job-title">NYCUKA (Voice-Enabled Mental Health Assistant)</div>
                 <ul>
-                    <li>Developed a voice-enabled psychological counseling chatbot under the advisor's research initiatives.</li>
-                    <li>Designed structured, empathetic dialog trees using <strong>ManyChat</strong> and engineered tailored <strong>LLM Prompts</strong> to deliver automated mental health support interfaces.</li>
+                    <li>Designed an empathetic conversational AI prototype deployed for reactive student counseling scenarios.</li>
+                    <li>Structured dialog flows via <strong>ManyChat</strong> and configured distinct <strong>LLM prompt parameters</strong> to balance natural dialogue pacing with supportive interactive behavior.</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <div class="time">Sept 2020 - May 2021</div>
-                <div class="job-title">Project Management System (NTPU Full-Stack Project)</div>
+                <div class="job-title">Project Management System (Full-Stack Platform)</div>
                 <ul>
-                    <li>Built a web-based collaboration platform resembling GitHub and Notion for task assignment and real-time progress tracking.</li>
-                    <li>Programmed the responsive frontend interface and backend server using <strong>Xampp & PhpMyAdmin</strong> connected to a <strong>MySQL</strong> database.</li>
-                    <li>Acted as team leader by coordinating weekly schedules, allocating development milestones, and presenting project updates.</li>
+                    <li>Developed a responsive, centralized dashboard built explicitly for student engineering teams to assign sprint tasks and monitor work progress metrics.</li>
+                    <li>Programmed full-stack routines using <strong>Xampp & PhpMyAdmin</strong> tied to a optimized <strong>MySQL</strong> backend cluster.</li>
                 </ul>
             </div>
             <div class="timeline-item">
                 <div class="time">Sept 2020 - May 2021</div>
-                <div class="job-title">Face Recognition & Voice Control Door Lock System</div>
+                <div class="job-title">Face Recognition & Voice Control Smart Entry Lock</div>
                 <ul>
-                    <li>Created a zero-contact smart lock system controlled via a mobile application developed in <strong>Android Studio</strong>.</li>
-                    <li>Integrated a Python-based server for facial verification, synchronized with <strong>Arduino</strong> microcontrollers for physical mechanism trigger.</li>
+                    <li>Prototyped a zero-contact physical entry ecosystem unifying mobile application logic with physical security triggers.</li>
+                    <li>Written a local Python server utilizing real-time image processing pipelines for facial verification, communicating seamlessly with <strong>Arduino</strong> microcontrollers.</li>
                 </ul>
             </div>
-        </div>
-    </section>
-
-    <!-- Athletics Section -->
-    <section>
-        <h2>Athletic Achievements</h2>
-        <p style="margin-bottom: 1.5rem;">Varsity Track and Field Team Member (Long-Distance Runner) maintaining over 90 to 110 kilometers of scientific weekly training.</p>
-        <div class="badge-list">
-            <div class="badge-item"><span>New Taipei City Wan-Jin-Shi Marathon (Full Marathon)</span> <span>Divisional Champion (2022 & 2023)</span></div>
-            <div class="badge-item"><span>Hsinchu City Athletic Meet (10,000m)</span> <span>Champion (2022)</span></div>
-            <div class="badge-item"><span>National Intercollegiate Athletic Games (NIAG) (10,000m / 5,000m)</span> <span>5th & 7th Place (2022)</span></div>
-            <div class="badge-item"><span>National Intercollegiate Track and Field Open (5,000m)</span> <span>5th Place (2023)</span></div>
         </div>
     </section>
 </div>
@@ -400,7 +407,6 @@
 <script>
     const toggleBtn = document.getElementById('themeToggle');
     
-    // Check local storage or system preference
     if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.setAttribute('data-theme', 'dark');
         toggleBtn.innerHTML = '☀️ Light Mode';
